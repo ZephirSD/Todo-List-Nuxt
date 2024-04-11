@@ -1,0 +1,54 @@
+:root{
+    --montserrat: "Montserrat", sans-serif;
+}
+
+body{
+    background-color: #292929;
+    display: flex;
+    justify-content: center;
+    // align-items: center;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+}
+
+section.case_tache{
+    width: 60vw;
+    H1{
+        color: white;
+        font-family: var(--montserrat);
+        text-align: center;
+        font-size: 2.5rem;
+    }
+    h3{
+        color: white;
+        text-align: center;
+        font-family: var(--montserrat);
+    }
+    div.case_input_ajout{
+        display: flex;
+        justify-content: center;
+        margin: 45px 0px;
+        input{
+            width: 20vw;
+            padding: 10px 0px;
+            font-family: var(--montserrat);
+            border: none;
+            border-radius: 0;
+            &::placeholder{
+                font-family: var(--montserrat);
+                font-style: italic;
+            }
+        }
+        button.btn_ajout{
+            background-color: rgb(64, 127, 174);
+            font-family: var(--montserrat);
+            border: none;
+            color: white;
+            padding: 0px 20px
+
+        }
+    }
+}
