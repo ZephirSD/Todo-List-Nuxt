@@ -1,7 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: [
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@pinia/nuxt'
   ],
   app: {
     head: {
@@ -13,5 +14,11 @@ export default defineNuxtConfig({
       ],
     },
   },
-  css: ["~/assets/scss/style.scss"],
+  css: [
+    "~/assets/scss/style.scss",
+    '@fortawesome/fontawesome-svg-core/styles.css'
+  ],
+  pinia: {
+    storesDirs: ['./stores/**', './custom-folder/stores/**'],
+  },
 });
