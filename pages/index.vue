@@ -10,10 +10,10 @@
       <div class="overflow-x-auto">
         <table class="table text-white">
           <tbody>
-            <tr v-for="todo in donnees">
+            <tr v-for="(todo, index) in donnees" :key="index">
               <th>
                 <label>
-                  <input type="checkbox" class="checkbox" />
+                  <input type="checkbox" class="checkbox" v-model="checkTodo" :value="index" />
                 </label>
               </th>
               <td>
@@ -21,28 +21,32 @@
               </td>
   
               <th>
-                <button class="btn btn-ghost btn-xs">Supprimer</button>
+                <button class="btn btn-ghost btn-xs" @click="clickSuppr(index)">Supprimer</button>
               </th>
             </tr>
           </tbody>
         </table>
+        <div>{{ checkTodo }}</div>
       </div>
     </section>
   </div>
 </template>
 
-<script setup >
+<script setup>
 import { useTodosStore } from '~/stores/todo';
 import { storeToRefs } from "pinia";
 import { ref } from 'vue';
 const inputValue = ref('');
-const todosStore = useTodosStore();
+const checkTodo  = ref([]);
+const todosStore = useTodosStore(); 
 const { donnees } = storeToRefs(todosStore);
 const addTodos = () => {
   if(inputValue.value != ""){
     todosStore.addTodos(inputValue.value);
+    inputValue.value = "";
   }
 }
+const clickSuppr = (index) => {
+  todosStore.supprTodos(index);
+}
 </script>
-
-<style scoped></style>

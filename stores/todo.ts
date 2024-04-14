@@ -19,6 +19,9 @@ export const useTodosStore = defineStore({
   actions: {
     addTodos(text: string){
         this.donnees.push({text});
+    },
+    supprTodos(index: number){
+      this.donnees.splice(index, 1);
     }
   },
 });
