@@ -1,1 +1,1 @@
-# Application de Todo_List avec Nuxt et Tailwind (DaisyUI)
+# Application de Todo_List avec Nuxt, Tailwind (DaisyUI) et Pinia
