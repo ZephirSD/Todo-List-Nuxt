@@ -4,7 +4,7 @@
       <h1>Liste des tâches</h1>
       <h3>Ajouter une tâche à réaliser</h3>
       <div class="case_input_ajout">
-        <input type="text" placeholder="Ajouter une nouvelle tâche" v-model="inputValue" class="input_tache"/>
+        <input type="text" placeholder="Ajouter une nouvelle tâche" v-model="inputValue" class="input_tache" @keypress="keypressInputTodo"/>
         <button class="btn_ajout" @click="addTodos">Ajouter</button>
       </div>
       <div class="overflow-x-auto">
@@ -54,6 +54,12 @@ const toggleCheckTodo = (index) => {
       checkTodo.value = [];
     }, 500);
   }
+}
+const keypressInputTodo = (event) => { 
+  if(event.code === "Enter" && inputValue.value != ""){
+     todosStore.addTodos(inputValue.value);
+     inputValue.value = "";
+   }
 }
 useHead({
   title: "Application de Todo List",
