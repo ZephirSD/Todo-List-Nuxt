@@ -13,20 +13,18 @@
             <tr v-for="(todo, index) in donnees" :key="index">
               <th>
                 <label>
-                  <input type="checkbox" class="checkbox" v-model="checkTodo" :value="index" />
+                  <input type="checkbox" class="checkbox" v-model="checkTodo" @change="toggleCheckTodo(index)" :value="index"/>
                 </label>
               </th>
-              <td>
+              <td :class="{ 'tache-barree': checkTodo.includes(index) }">
                 <div class="font-bold">{{ todo.text }}</div>
               </td>
-  
               <th>
                 <button class="btn btn-ghost btn-xs" @click="clickSuppr(index)">Supprimer</button>
               </th>
             </tr>
           </tbody>
         </table>
-        <div>{{ checkTodo }}</div>
       </div>
     </section>
   </div>
@@ -48,6 +46,14 @@ const addTodos = () => {
 }
 const clickSuppr = (index) => {
   todosStore.supprTodos(index);
+}
+const toggleCheckTodo = (index) => {
+  if(checkTodo.value.includes(index)){
+    setTimeout(() => {
+      todosStore.supprTodos(index);
+      checkTodo.value = [];
+    }, 500);
+  }
 }
 useHead({
   title: "Application de Todo List",

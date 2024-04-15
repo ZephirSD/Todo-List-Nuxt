@@ -51,4 +51,8 @@ section.case_tache{
 
         }
     }
+    td.tache-barree {
+        text-decoration: line-through;
+        transition: text-decoration 0.3s ease-in-out;
+      }
 }

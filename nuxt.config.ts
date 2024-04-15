@@ -16,7 +16,6 @@ export default defineNuxtConfig({
   },
   css: [
     "~/assets/scss/style.scss",
-    '@fortawesome/fontawesome-svg-core/styles.css'
   ],
   pinia: {
     storesDirs: ['./stores/**', './custom-folder/stores/**'],
