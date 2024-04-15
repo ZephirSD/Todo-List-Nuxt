@@ -49,4 +49,10 @@ const addTodos = () => {
 const clickSuppr = (index) => {
   todosStore.supprTodos(index);
 }
+useHead({
+  title: "Application de Todo List",
+  meta: [
+    { name: 'description', content: 'Application Web de Todo-List avec NuxtJS'}
+  ]
+})
 </script>
